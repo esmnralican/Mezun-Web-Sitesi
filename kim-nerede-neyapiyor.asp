@@ -15,7 +15,8 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 		<link rel="shortcut icon" href="image/icon.png">
 	</head>
-	 <body>
+	 <body>			
+   
 		<div id="header">
 			<a href="index.asp" title="ANASAYFA">
 			<img src="image/ozel-okul-acmak.jpg" alt="logo" class="websitesilogo" />
@@ -61,15 +62,7 @@
 		</div>
 		<br>
 		<br>
-		<div id="content">
-			<div align="center">
-				<font face="Times New Roman" size="5" color="#CCFFCC"> <br>KİM, NEREDE, NE YAPIYOR?</font><br />
-			</div>
-			<br>
-			<br>
-			
-				
-   <%
+		<div id="content"><%
     Dim Cnxn, strCnxn  
     Dim rsCustomers, strSQLCustomers  
     Dim rsProducts, strSQLProducts  
@@ -91,10 +84,18 @@
     rsProducts.Open strSQLProducts,Cnxn
     %>
 
-
+			<div align="center">
+				<font face="Times New Roman" size="5" color="#CCFFCC"> <br>KİM, NEREDE, NE YAPIYOR?</font><br />
+			</div>
+			<br>
+			<br>
+			
+	
+        <div>
 		<table border=2  bordercolor="#CCFFCC">
 		<tr>
-		<td align="center" colspan="8" width="100"><font face="Times New Roman" size="5" color="#CCFFCC">Mezunlarımız</td>
+		<br>
+		<td align="center" colspan="10" width="100"><font face="Times New Roman" size="5" color="#CCFFCC">Mezunlarımız</td>
 		</tr>	
 		<tr>
 		<br>
@@ -107,8 +108,8 @@
 		<td width="100"><font face="Times New Roman" size="3" color="#CCFFCC">Web Sitesi</font></td>
 		<td width="100"><font face="Times New Roman" size="3" color="#CCFFCC">Twitter Hesabı</font></td>
          
-		</tr>
-			<tr><% Do until rscustomers.eof%>
+		</tr><% Do until rscustomers.EOF%>
+			<tr>
 			<td><font face="Times New Roman" size="3" color="#CCFFCC"><%=rscustomers("Adi")%></font></td>
 			<td><font face="Times New Roman" size="3" color="#CCFFCC"><%=rscustomers("Soyadi")%></font></td>
 			<td><font face="Times New Roman" size="3" color="#CCFFCC"><%=rscustomers("Meslegi")%></font></td>
@@ -118,7 +119,7 @@
 			<td><a href="<%=rsCustomers("Web_sitesi")%>" target="_blank"><%=rsCustomers("Web_sitesi")%></a></td>
 			<td><a href="<%=rsCustomers("Twitter_hesabi")%>" target="_blank"><%=rsCustomers("Twitter_hesabi")%></a></td>
 			</tr> <%rscustomers.movenext 
-		loop %>
+		loop %></table></div></div>
 	 </body>
 	
 	
